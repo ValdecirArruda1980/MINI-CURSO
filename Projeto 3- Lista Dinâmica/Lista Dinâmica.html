@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Dinâmica - Valdecir</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Minha Lista</h2>
+    <div class="input-group">
+        <input type="text" id="itemInput" placeholder="Digite um item...">
+        <button onclick="adicionarItem()">Adicionar</button>
+    </div>
+    <ul id="listaItens">
+        </ul>
+</div>
+
+<script>
+    function adicionarItem() {
+        // 1. Referenciando os elementos do DOM
+        const input = document.getElementById('itemInput');
+        const lista = document.getElementById('listaItens');
+        const texto = input.value.trim();
+
+        // 2. Validação para não adicionar itens vazios
+        if (texto === "") {
+            alert("Por favor, digite algo!");
+            return;
+        }
+
+        // 3. Criação dinâmica de novos elementos
+        const novoItem = document.createElement('li');
+        
+        // 4. Manipulação do conteúdo e estrutura
+        novoItem.textContent = texto;
+        
+        // 5. Inserção no DOM
+        lista.appendChild(novoItem);
+
+        // 6. Limpeza do campo e foco para a próxima digitação
+        input.value = "";
+        input.focus();
+    }
+
+    // Adiciona funcionalidade de apertar "Enter" para cadastrar
+    document.getElementById('itemInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            adicionarItem();
+        }
+    });
+</script>
+
+</body>
+</html>
