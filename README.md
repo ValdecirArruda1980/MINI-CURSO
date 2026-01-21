@@ -23,7 +23,7 @@ O repositório está organizado em 6 módulos práticos:
 
 ## 👤 Autor
 **Valdecir Rogério De Arruda**
-*Aluno do MBA USP ESALQ*
+
 
 ---
 *Este material foi produzido como parte das atividades práticas do curso. A responsabilidade pela idoneidade e originalidade dos conteúdos é do autor.*
