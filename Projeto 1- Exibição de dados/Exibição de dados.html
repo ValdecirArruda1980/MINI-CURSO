@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Personalizada - Valdecir</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #mensagem {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interação com JavaScript</h1>
+    <button id="btnClique">Clique aqui, Valdecir!</button>
+    <p id="mensagem"></p>
+
+    <script>
+        // Selecionamos os elementos do HTML usando o DOM
+        const botao = document.getElementById('btnClique');
+        const campoMensagem = document.getElementById('mensagem');
+
+        // Adicionamos um "ouvinte de evento" para o clique
+        botao.addEventListener('click', function() {
+            // Esta função será executada toda vez que o botão for clicado
+            campoMensagem.textContent = "Olá, Valdecir de Piracicaba! O código está funcionando perfeitamente.";
+            
+            // Um pequeno feedback visual no console (F12 no navegador)
+            console.log("Botão acionado com sucesso!");
+        });
+    </script>
+
+</body>
+</html>
