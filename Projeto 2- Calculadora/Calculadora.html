@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples - Valdecir</title>
+    <style>
+        /* Estilização para manter o design limpo e centralizado */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e9ecef;
+            margin: 0;
+        }
+        .calc-container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            width: 80px;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-container">
+        <h2>Calculadora</h2>
+        
+        <input type="number" id="num1" placeholder="N1">
+        
+        <select id="operacao">
+            <option value="soma">+</option>
+            <option value="subtracao">-</option>
+            <option value="multiplicacao">*</option>
+            <option value="divisao">/</option>
+        </select>
+        
+        <input type="number" id="num2" placeholder="N2">
+        
+        <br><br>
+        
+        <button onclick="calcular()">Calcular</button>
+
+        <div id="resultado">Resultado: -</div>
+    </div>
+
+    <script>
+        /**
+         * Função principal acionada pelo botão
+         */
+        function calcular() {
+            // 1. Captura os valores dos inputs e converte para números decimais (float)
+            const n1 = parseFloat(document.getElementById('num1').value);
+            const n2 = parseFloat(document.getElementById('num2').value);
+            const op = document.getElementById('operacao').value;
+            const display = document.getElementById('resultado');
+
+            // 2. Validação básica: verifica se os campos não estão vazios
+            if (isNaN(n1) || isNaN(n2)) {
+                display.textContent = "Por favor, insira números válidos.";
+                display.style.color = "red";
+                return;
+            }
+
+            let resultado;
+
+            // 3. Estrutura de decisão para as operações matemáticas
+            switch (op) {
+                case 'soma':
+                    resultado = n1 + n2;
+                    break;
+                case 'subtracao':
+                    resultado = n1 - n2;
+                    break;
+                case 'multiplicacao':
+                    resultado = n1 * n2;
+                    break;
+                case 'divisao':
+                    // Validação para não dividir por zero
+                    if (n2 === 0) {
+                        display.textContent = "Erro: Divisão por zero!";
+                        display.style.color = "red";
+                        return;
+                    }
+                    resultado = n1 / n2;
+                    break;
+            }
+
+            // 4. Exibe o resultado na tela formatado
+            display.textContent = `Resultado: ${resultado}`;
+            display.style.color = "#333";
+        }
+    </script>
+
+</body>
+</html>
