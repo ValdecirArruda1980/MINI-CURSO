@@ -1,0 +1,14 @@
+<button id="meuBotao">Clique Aqui</button>
+<div id="resultado"></div>
+
+<script>
+    // Erro de lógica e sintaxe abaixo:
+    var botao = document.getElementById("meuBotao")
+    
+    botao.onclick = function() {
+        var numero = "10";
+        var total = numero + 5; // Erro de Lógica
+        
+        document.getElementByid("resultado").innerhtml = total; // Erro de Sintaxe
+    }
+</script>

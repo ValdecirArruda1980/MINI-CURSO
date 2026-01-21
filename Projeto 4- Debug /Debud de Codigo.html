@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Correção de Código - Valdecir</title>
+</head>
+<body>
+
+    <button id="meuBotao">Calcular Total</button>
+    <div id="resultado"></div>
+
+    <script>
+        // 1. Uso de const para elementos que não mudam
+        const botao = document.getElementById("meuBotao");
+        const display = document.getElementById("resultado");
+
+        // 2. Uso de addEventListener (Melhor prática)
+        botao.addEventListener("click", () => {
+            // 3. Convertendo string para número (Corrigindo lógica)
+            const numero = "10";
+            const total = Number(numero) + 5; 
+
+            // 4. Sintaxe correta para innerHTML
+            display.innerHTML = `<strong>O total é: ${total}</strong>`;
+        });
+    </script>
+
+</body>
+</html>
